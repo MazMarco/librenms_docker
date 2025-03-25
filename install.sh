@@ -22,4 +22,4 @@ docker compose up -d
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
 
 # Display success message with access URL
-echo "Installation successful. LibreNMS is available at: http://$IP_ADDRESS:8000"
+echo "Installation successful. LibreNMS is available at: http://$IP_ADDRESS"

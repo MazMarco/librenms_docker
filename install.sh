@@ -6,6 +6,34 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
+# Update system based on distro
+update_system() {
+    if [ -f /etc/os-release ]; then
+        . /etc/os-release
+        case "$ID" in
+            ubuntu|debian)
+                apt update && apt upgrade -y
+                ;;
+            centos|rhel)
+                yum update -y
+                ;;
+            fedora)
+                dnf upgrade --refresh -y
+                ;;
+            alpine)
+                apk update && apk upgrade
+                ;;
+            *)
+                echo "Unsupported or unknown distro: $ID"
+                ;;
+        esac
+    else
+        echo "Cannot detect Linux distribution."
+    fi
+}
+
+update_system
+
 # Install Docker
 bash <(curl -fsSL https://get.docker.com)
 
@@ -42,9 +70,7 @@ spin() {
 
 spin
 
-
-
 # Display success message with access URL
 echo -e "\n✅ Installation complete!"
 echo "🌐 Access LibreNMS at: http://$IP_ADDRESS"
-echo "⏳If it\'s not loading yet, please wait a moment – the containers may still be initializing..."
+echo "⏳ If it's not loading yet, please wait a moment – the containers may still be initializing..."

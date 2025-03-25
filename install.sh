@@ -61,7 +61,7 @@ spin() {
     local i=0
     local end=$((SECONDS + 30))
     while [ $SECONDS -lt $end ]; do
-        printf "\rWaiting... ${marks[i]}"
+        printf "\rPlease wait... ${marks[i]}"
         i=$(( (i + 1) % 4 ))
         sleep 0.1
     done

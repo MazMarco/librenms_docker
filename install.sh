@@ -48,9 +48,9 @@ wget -q https://raw.githubusercontent.com/skippybossx/librenms_docker/main/msmtp
 sleep 1
 
 # Start LibreNMS using Docker Compose
-docker compose up -d
+# docker compose up -d
 
-sleep 1
+# sleep 1
 
 # Get the server's IP address
 IP_ADDRESS=$(hostname -I | awk '{print $1}')

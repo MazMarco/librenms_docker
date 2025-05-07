@@ -35,15 +35,15 @@ update_system() {
 update_system
 
 # Install Docker
-bash <(curl -fsSL https://get.docker.com)
+# bash <(curl -fsSL https://get.docker.com)
 
-sleep 1
+# sleep 1
 
 # Download necessary files from GitHub
-wget -q https://raw.githubusercontent.com/skippybossx/librenms_docker/main/.env
-wget -q https://raw.githubusercontent.com/skippybossx/librenms_docker/main/docker-compose.yml
-wget -q https://raw.githubusercontent.com/skippybossx/librenms_docker/main/librenms.env
-wget -q https://raw.githubusercontent.com/skippybossx/librenms_docker/main/msmtpd.env
+wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/.env
+wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/docker-compose.yml
+wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/librenms.env
+wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/msmtpd.env
 
 sleep 1
 

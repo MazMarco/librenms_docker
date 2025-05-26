@@ -48,7 +48,7 @@ wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/msmtpd.e
 sleep 1
 
 # Start LibreNMS using Docker Compose
-# docker compose up -d
+docker compose up -d
 
 # sleep 1
 

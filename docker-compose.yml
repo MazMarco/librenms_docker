@@ -28,7 +28,7 @@ services:
     restart: always
 
   redis:
-    image: redis:5.0-alpine
+    image: redis:7.2-alpine
     container_name: librenms_redis
     environment:
       - "TZ=${TZ}"
@@ -54,10 +54,13 @@ services:
         protocol: tcp
     depends_on:
       - db
+      - redis
       - memcached
       - msmtpd
     volumes:
       - "./librenms:/data"
+      - "./librenmsdockercron.sh:/opt/librenms/cronscript.sh"
+      - "./import-cron.sh:/etc/cont-init.d/09-import-cron.sh"
     env_file:
       - "./librenms.env"
     environment:
@@ -148,6 +151,7 @@ services:
       - NET_RAW
     depends_on:
       - librenms
+      - redis
     ports:
       - target: 162
         published: 162

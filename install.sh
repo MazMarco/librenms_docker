@@ -44,6 +44,9 @@ wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/.env
 wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/docker-compose.yml
 wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/librenms.env
 wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/msmtpd.env
+wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/librenmsdockercron.sh
+wget -q https://raw.githubusercontent.com/MazMarco/librenms_docker/main/import-cron.sh
+
 
 sleep 1
 
